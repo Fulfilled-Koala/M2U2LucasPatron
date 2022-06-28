@@ -12,6 +12,27 @@ const inputContainer = getElement('#container');
 const result = [];
 let total = 0;
 
+// SUBJECTS
+function addSubject(button) {
+  // check if the values of the array are greater than 0 or not undefined
+  if (
+    !result.every((value) => value !== undefined && value > 0) ||
+    result.length === 0 ||
+    result.length !== total
+  )
+    return alert('All values must be greater than 0');
+
+  button.disabled = true;
+  const paragraph = document.createElement('p');
+  paragraph.className = 'text-white font-medium';
+  paragraph.textContent = `${username.value}, the total is: 
+  ${result
+    .reduce((acc, curr) => (curr ? acc + (curr - curr * 0.2) : 0), 28e3)
+    .toLocaleString('es-CO')} COP`;
+  inputContainer.appendChild(paragraph);
+  button.onclick = null;
+}
+
 // ELEMENT MANIPULATION
 function createElement(element, key) {
   switch (element) {
@@ -40,20 +61,7 @@ function createElement(element, key) {
       button.textContent = `👌`;
       button.className =
         'btn bg-violet-500 hover:bg-violet-600 px-4 py-2 font-medium rounded disabled:opacity-25';
-      button.onclick = () => {
-        if (!result.every((value) => value > 0)) return alert('All values must be greater than 0');
-        if (result.includes(undefined) || result.length === 0 || result.length !== total)
-          return alert('Incorrect');
-
-        button.disabled = true;
-        const paragraph = document.createElement('p');
-        paragraph.className = 'text-white font-medium';
-        paragraph.textContent = `${username.value}, the total is: ${result
-          .reduce((acc, curr) => (curr ? acc + (curr - curr * 0.2) : 0), 28e3)
-          .toLocaleString('es-CO')} COP`;
-        inputContainer.appendChild(paragraph);
-        button.onclick = null;
-      };
+      button.onclick = () => addSubject(button);
       return button;
     }
     default:
