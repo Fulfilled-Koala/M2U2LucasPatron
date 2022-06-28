@@ -23,8 +23,8 @@ submitButton.onclick = (e) => {
   const set = new Set(Array.from(all).map((el) => +el.value));
   if (set.size !== 4) return error('All numbers must be unique!');
 
-  let max = Number.MIN_VALUE,
-    min = Number.MAX_VALUE;
+  let max = Number.NEGATIVE_INFINITY,
+    min = Number.POSITIVE_INFINITY;
   set.forEach((num) => {
     max = num > max ? num : max;
     min = num < min ? num : min;
