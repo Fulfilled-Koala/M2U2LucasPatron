@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="./src/index.js" async defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="flex flex-col items-center p-8 text-center uppercas bg-neutral-800">
+    <form class="flex flex-col gap-4">
+      <div class="flex flex-col gap-1">
+        <label class="text-neutral-300 font-medium uppercase">What's your name?</label>
+        <input
+          id="name"
+          type="text"
+          class="w-full bg-neutral-900 outline-none text-gray-400 rounded p-2 mr-4"
+          placeholder="Nombre"
+        />
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-neutral-300 font-medium uppercase"
+          >Input the number of subjects (maximum 9)</label
+        >
+        <input
+          id="subjects"
+          type="number"
+          class="w-full bg-neutral-900 outline-none text-gray-400 rounded p-2 mr-4"
+          placeholder="0"
+        />
+      </div>
+      <button
+        id="first"
+        type="submit"
+        class="btn bg-blue-500 hover:bg-blue-600 text-neutral-300 px-4 py-2 font-medium rounded disabled:opacity-25"
+      >
+        👉
+      </button>
+    </form>
+    <div class="flex flex-col gap-4 m-4" id="container"></div>
+  </body>
+</html>
