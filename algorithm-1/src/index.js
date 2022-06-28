@@ -41,6 +41,7 @@ function createElement(element, key) {
       button.className =
         'btn bg-violet-500 hover:bg-violet-600 px-4 py-2 font-medium rounded disabled:opacity-25';
       button.onclick = () => {
+        if (!result.every((value) => value > 0)) return alert('All values must be greater than 0');
         if (result.includes(undefined) || result.length === 0 || result.length !== total)
           return alert('Incorrect');
 
