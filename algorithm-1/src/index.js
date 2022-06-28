@@ -15,11 +15,7 @@ let total = 0;
 // SUBJECTS
 function addSubject(button) {
   // check if the values of the array are greater than 0 or not undefined
-  if (
-    !result.every((value) => value !== undefined && value > 0) ||
-    result.length === 0 ||
-    result.length !== total
-  )
+  if (!result.every((value) => value !== undefined && value > 0) || result.length !== total)
     return alert('All values must be greater than 0');
 
   button.disabled = true;
