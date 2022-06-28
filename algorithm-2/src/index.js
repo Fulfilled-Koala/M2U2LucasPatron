@@ -26,8 +26,8 @@ submitButton.onclick = (e) => {
   let max = Number.MIN_VALUE,
     min = Number.MAX_VALUE;
   set.forEach((num) => {
-    num > max && (max = num);
-    num < min && (min = num);
+    max = num > max ? num : max;
+    min = num < min ? num : min;
   });
 
   outputParagraph.textContent = `👉 ${[...set].join(', ')}`;
